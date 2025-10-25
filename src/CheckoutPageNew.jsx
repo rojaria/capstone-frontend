@@ -23,6 +23,7 @@ export default function CheckoutPageNew({ user }) {
   }); // 카트 번호
   const [tossPayments, setTossPayments] = useState(null); // 토스페이먼츠 객체
   const [useRealPayment, setUseRealPayment] = useState(false); // 실제 결제 사용 여부
+  const [paymentMethod, setPaymentMethod] = useState("카드"); // 결제 방법
 
   // 토스페이먼츠 초기화
   useEffect(() => {
@@ -493,6 +494,34 @@ export default function CheckoutPageNew({ user }) {
             {discount.toLocaleString()}원 할인 적용
           </p>
         )}
+      </div>
+
+      {/* 결제 방법 선택 */}
+      <div className="mt-6 sm:mt-8">
+        <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 pb-2 border-b border-gray-200">결제 방법</h3>
+        
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <button
+            onClick={() => setPaymentMethod("카드")}
+            className={`p-3 sm:p-4 border-2 transition text-xs sm:text-sm font-medium ${
+              paymentMethod === "카드"
+                ? "border-black bg-black text-white"
+                : "border-gray-300 hover:border-gray-400"
+            }`}
+          >
+            💳 카드 결제
+          </button>
+          <button
+            onClick={() => setPaymentMethod("간편결제")}
+            className={`p-3 sm:p-4 border-2 transition text-xs sm:text-sm font-medium ${
+              paymentMethod === "간편결제"
+                ? "border-black bg-black text-white"
+                : "border-gray-300 hover:border-gray-400"
+            }`}
+          >
+            📱 간편 결제
+          </button>
+        </div>
       </div>
 
       {/* 결제 모드 선택 (테스트용) - 주석처리됨 */}

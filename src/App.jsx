@@ -174,7 +174,7 @@ export default function App() {
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="w-auto max-w-md">
           <div className="card">
-            <h2 className="text-xl font-bold mb-4 text-center">로그인</h2>
+            <h2 className="text-xl font-bold mb-4 text-center">스마트 장바구니</h2>
             {/* showLogin이 true면 로그인 화면, false면 회원가입 화면 */}
             {showLogin ? (
               <>
